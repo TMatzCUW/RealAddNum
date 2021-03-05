@@ -15,8 +15,7 @@ namespace AddNum
         public Form1()
         {
             InitializeComponent();
-            //focus on textbox for input
-            textBox1.Focus();
+            
         }
         //using a running total to add up the numbers
         double total = 0;
@@ -32,7 +31,7 @@ namespace AddNum
             //Displays all the information in a new window and resets the app
             MessageBox.Show("Total weight = " + total + Environment.NewLine + "Total shims: " + shims, "Totals");
             total = 0;
-            label3.Text = "" + total;
+            label4.Text = "" + total;
             textBox1.Text = "";
             shims = 0;
             label5.Text = "" + shims;
@@ -51,7 +50,7 @@ namespace AddNum
                 previoustotal = total;
                 previousshims = shims;
                 total = total + add;
-                label3.Text = "" + total;
+                label4.Text = "" + total;
                 shims += 1;
                 label5.Text = "" + shims;
                 textBox1.Text = "";
@@ -68,7 +67,7 @@ namespace AddNum
             //goes back one interation
             total = previoustotal;
             shims = previousshims;
-            label3.Text = "" + total;
+            label4.Text = "" + total;
             label5.Text = "" + shims;
             label6.Text = "";
         }
@@ -77,7 +76,7 @@ namespace AddNum
         {
             //resets the totals and clears input box
             total = 0;
-            label3.Text = "" + total;
+            label4.Text = "" + total;
             textBox1.Text = "";
             shims = 0;
             label5.Text = "" + shims;
@@ -88,7 +87,15 @@ namespace AddNum
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Displays helpful information for the user when they click on the Help menu
             MessageBox.Show("This is a tool to add things together." + Environment.NewLine + "Input each number you want to add one at a time, press Enter/Add, and the total will be displayed", "Help");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //focus on textbox for input
+            textBox1.Select();
+            textBox1.Focus();
         }
     }
 }
